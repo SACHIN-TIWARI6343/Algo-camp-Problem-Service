@@ -1,7 +1,8 @@
 const express = require('express');
 const { PORT } = require('./config/server.config');
 
-const bodyParser = require('body-parser')
+const bodyParser = require('body-parser');
+const { apiRouter } = require('./routes');
 
 const app= express();
 
@@ -11,11 +12,8 @@ app.use(bodyParser.urlencoded({extended:true}))
 app.use(bodyParser.text())
 
 
-app.get('/ping',(req,res)=>{
-    return res.json({
-        message:'problem service a live'
-    })
-})
+app.use('/api',apiRouter)
+
 
 
 app.listen(PORT,()=>{
