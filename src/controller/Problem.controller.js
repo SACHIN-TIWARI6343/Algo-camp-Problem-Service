@@ -1,30 +1,59 @@
+
+const {StatusCodes} =require('http-status-codes')
+const Notimplemented = require('../errors/notimplemented')
 function pingProblemController(req,res)
 {
     return res.json({message:"ping controller up"})
 }
 
-function addProblem(req,res){
+function addProblem(req,res, next){
 
+    try{
+      // nothing implemented
+      throw new Notimplemented('add problem')
+    }catch(error){
+         next(error);
+    }
 }
 
 
 
 function getProblem(req,res){
-    
+    try{
+        // nothing implemented
+        throw new Notimplemented('add problem')
+      }catch(error){
+           next(error);
+      } 
 }
 
 
 function getProblems(req,res){
-    
+    try{
+        // nothing implemented
+        throw new Notimplemented('add problem')
+      }catch(error){
+           next(error);
+      }
 }
 
 function deleteProblem(req,res){
-    
+    try{
+        // nothing implemented
+        throw new Notimplemented('add problem')
+      }catch(error){
+           next(error);
+      }
 }
 
 
 function updateProblem(req,res){
-    
+    try{
+        // nothing implemented
+        throw new Notimplemented('add problem')
+      }catch(error){
+           next(error);
+      }
 }
 
 
