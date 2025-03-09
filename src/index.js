@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}))
 app.use(bodyParser.text())
 
-
+// if any request comes and routes with /api, we mapp it to piRouter
 app.use('/api',apiRouter)
 
 

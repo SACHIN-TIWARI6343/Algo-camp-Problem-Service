@@ -1,3 +1,3 @@
 module.exports={
-    ProblemController:require('./Problem.controller')
+    problemController:require('./Problem.controller')
 }

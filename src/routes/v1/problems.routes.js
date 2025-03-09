@@ -5,22 +5,23 @@ const {ProblemController}= require('../../controller/index')
 
 const problemRouter = express.Router();
 
-problemRouter.get('/ping',ProblemController.pingProblemController)
+// if any request comes and continue with /ping, we mapp it to v1router
+problemRouter.get('/ping',problemController.pingProblemController)
 
-problemRouter.get('/:id',ProblemController.getProblem);
-
-
-problemRouter.get('/',ProblemController.getProblems)
+problemRouter.get('/:id',problemController.getProblem);
 
 
-problemRouter.post('/',ProblemController.addProblem);
+problemRouter.get('/',problemController.getProblems)
 
 
-problemRouter.delete('/:id',ProblemController.deleteProblem);
+problemRouter.post('/',problemController.addProblem);
+
+
+problemRouter.delete('/:id',problemController.deleteProblem);
 
 
 
-problemRouter.put(':id',ProblemController.updateProblem)
+problemRouter.put(':id',problemController.updateProblem)
 
 
 
