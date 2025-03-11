@@ -1,13 +1,12 @@
 
-const {StatusCodes} =require('http-status-codes')
-const Notimplemented = require('../errors/notimplemented')
+const {StatusCodes} =require('http-status-codes')                        // implement status code in this file
+const Notimplemented = require('../errors/notimplemented') 
 function pingProblemController(req,res)
 {
     return res.json({message:"ping controller up"})
 }
 
 function addProblem(req,res, next){
-
     try{
       // nothing implemented
       throw new Notimplemented('add problem')
