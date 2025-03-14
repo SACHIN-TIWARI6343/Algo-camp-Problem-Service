@@ -26,7 +26,6 @@ app.use(bodyParser.text())
 app.use('/api',apiRouter)
 
 
-
 app.use(errorHandler);
 
 
@@ -34,6 +33,4 @@ app.listen(PORT,async()=>{
 console.log(`Server started at ${PORT}` );
    await connectToDB();
    console.log("Succesfully connect to db");
-
-  
 })

@@ -1,7 +1,7 @@
 /*Connect to MongoDB using mongoose.connect()
 Define a Schema (userSchema) to structure data
 Create a Model (User)
-Insert a new document using .save()*/
+Insert a new document using .save() or .create()*/
 
 const mongoose = require('mongoose');
 
@@ -34,6 +34,6 @@ const problemSchema =  new mongoose.Schema({
         type:String
     }
 });
-const Problem = mongoose.model('Problem',problemSchema)
+const Problem = mongoose.model('Problem',problemSchema) // create model 
 
 module.exports = Problem; 

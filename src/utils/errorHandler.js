@@ -1,6 +1,6 @@
 const { BaseError } = require("../errors/BaseError");
 
-const {statuscode}= require('http-status-codes')
+const {StatusCodes}= require('http-status-codes')
 
 
 function errorHandler(err ,req, res, next){
@@ -15,10 +15,10 @@ function errorHandler(err ,req, res, next){
         });
     }
 
-    return res.status(err.statuscode).json({
+    return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
         succes :false,
-        message:err.message,
-        error: err.details,
+        message:"Something went wrong",
+        error: err,
         data:{}  //  because this is an excepton so no data is going to be provided 
         
     });
