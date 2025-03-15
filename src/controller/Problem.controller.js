@@ -37,7 +37,7 @@ async  function addProblem(req,res, next){
   async function getProblem(req,res,next){
     try{
         const problem = await  problemService.getProblem(req.params.id.trim())
-        console.log(problem);
+        
          return res.status(StatusCodes.OK).json({
           sucess:true,
           error:{},

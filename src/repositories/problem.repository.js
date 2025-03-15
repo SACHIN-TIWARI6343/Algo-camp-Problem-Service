@@ -46,7 +46,7 @@ class ProblemRepository {
             if(!problem){
             throw new NotFound("Problem", id)
             }
-            return problem
+            return problem;
         } catch (error) {
             console.log(error);
             throw error;
