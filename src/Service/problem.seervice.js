@@ -32,6 +32,22 @@ class ProblemService {
            throw error;
        } 
 
+
+    }
+    async getAllProblems(){
+      try {
+        const problems = await this.problemRepository.getAllproblems();
+        return problems;
+      } catch (error) {
+        console.log(error);
+        throw error;
+      }
+    }
+
+    async getProblem(problemId){
+     // console.log(problemId);
+      const problem = await this.problemRepository.getProblem(problemId);
+      return problem;
     }
 
 }
