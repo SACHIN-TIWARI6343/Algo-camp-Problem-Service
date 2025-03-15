@@ -51,7 +51,7 @@ class ProblemRepository {
             console.log(error);
             throw error;
             
-        }
+        }  
     }
 
     async deleteProblem_by_id(id){
