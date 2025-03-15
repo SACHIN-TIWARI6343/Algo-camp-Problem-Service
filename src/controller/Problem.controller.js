@@ -4,6 +4,7 @@ const Notimplemented = require('../errors/notimplemented')
 const {ProblemService} = require('../Service');
 const {ProblemRepository} = require('../repositories');
 const { StatusCodes } = require('http-status-codes');
+const errorHandler = require('../utils/errorHandler');
 
 const temp= new ProblemRepository();
 
@@ -20,12 +21,8 @@ function pingProblemController(req,res)
 
 async  function addProblem(req,res, next){
        try{  
-
         const newproblem = await problemService.createProblem(req.body);
- 
-
-        console.log(newproblem);
-       return  res.status(StatusCodes.CREATED).json({
+        return  res.status(StatusCodes.CREATED).json({
          success: true,
          message:'Succsefully created a new problem',
          error:{},
@@ -35,7 +32,6 @@ async  function addProblem(req,res, next){
          next(error);
       }
 }
-
 
 
   async function getProblem(req,res,next){
@@ -55,30 +51,30 @@ async  function addProblem(req,res, next){
 
 
 async  function getProblems(req,res,next){
- 
-  
-      try {
+  try {
       const response = await problemService.getAllProblems();
-
-      console.log(response);
-
       return res.status(StatusCodes.OK).json({
        success: true,
        message: "Succesfully feated all the problems",
        error : {},
        data:response
-   
      });
      } catch (error) {
-
        next(error)
-
    }
 }
-function deleteProblem(req,res){
+
+
+ async function deleteProblem(req,res,next){
     try{
-        // nothing implemented
-        throw new Notimplemented('add problem')
+       const id= req.params.id;
+      const deleteproblem= await problemService.deleteProblem_by_id(id);
+       return res.status(StatusCodes.OK).json({
+        Success: true,
+        message:"Successfully deleted problem in database",
+        error :{},
+        data : deleteproblem
+       })
       }catch(error){
            next(error);
       }
