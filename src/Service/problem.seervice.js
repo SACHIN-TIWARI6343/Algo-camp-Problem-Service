@@ -23,7 +23,7 @@ class ProblemService {
 
          const problem = await this.problemRepository.CreateProblem(problemData);
  
-         console.log(problem);
+
 
          return problem;
 
